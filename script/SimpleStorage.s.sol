@@ -1,38 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+import {Script} from "forge-std/Script.sol";
+import {SimpleStorage} from "../src/SimpleStorage.sol";
+import {HelperConfig} from "./HelperConfig.s.sol";
 
-// Uncomment this line to use console.log
-// import "hardhat/console.sol";
 
-contract SimpleStorage is Ownable {
+contract Deployer is Script {
 
-    uint256 private storedData;
-    event valueChanged(uint256 oldValue, uint256 newValue, address who);
+    function run() external returns(SimpleStorage, HelperConfig){
+        HelperConfig helperConfig = new HelperConfig();
+        (address owner, uint256 privateKey) = helperConfig.activeNetworkConfig();
 
-    /**
-     * @notice Constructor to set the initial owner of the contract
-     * @param _initialOwner The address of the initial owner
-     */
-    constructor(address _initialOwner) Ownable(_initialOwner) {}
-
-    /**
-     * @notice Get the value of the storedData
-     * @return The value of the storedData
-     */
-    function get() public view returns (uint256) {
-        return storedData;
-    }
-
-    /**
-     * @notice Set the value of the storedData
-     * @param value The new value to be stored
-     */
-    function set(uint256 value) public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("New value is %o and block timestamp is %o", value, block.timestamp);
-        emit valueChanged(storedData, value, msg.sender);
-        storedData = value;
+        vm.startBroadcast(privateKey);
+        SimpleStorage simpleStorage = new SimpleStorage(owner);
+        vm.stopBroadcast();
+        return (simpleStorage, helperConfig);
     }
 }
