@@ -6,6 +6,8 @@
 require("dotenv").config();
 // dotenv.config();
 
+const contractFrontFolder = "../../frontend/contracts";
+
 async function main() {
   //   const nodeUrl = process.env.LOCAL_RPC;
   //   console.log(`💻⌛ Connection to provider ${nodeUrl}...`);
@@ -36,7 +38,7 @@ async function main() {
       );
     }
     catch (error) {
-      throw new Error(`❌ Error when deploying contract: ${error}`);
+      throw new Error(`❌ ${error}`);
     }
   }
 }
@@ -49,13 +51,14 @@ async function saveFrontendFiles(contractName, args) {
 
   const chainId = 11155111;
 
-
+  const frontContractsDir = path.join(__dirname, contractFrontFolder);
   const frontContractFilePath = path.join(frontContractsDir, `${contractName}.json`);
 
   console.log(`📁 Frontend contract directory: ${frontContractsDir}`);
   if (!fs.existsSync(frontContractsDir)) {
-    fs.mkdirSync(frontContractsDir);
+    fs.mkdirSync(frontContractsDir, { recursive: true });
   }
+  console.log("hoooooooooo")
 
   /** Read compiled contract file **/
 
