@@ -1,6 +1,6 @@
 -include .env
 
-.PHONY: all test clean deploy fund help install snapshot format anvil 
+.PHONY: deploy help 
 
 help:
 	@echo "Usage:"
@@ -18,5 +18,5 @@ deploy:
 	@forge script script/SimpleStorage.s.sol:SimpleStorageDeploy $(NETWORK_ARGS)
 
 deployCopy:
-	# $(MAKE) deploy
-	@node script/copyFile.ts
+	$(MAKE) deploy
+	@node script/copyFile.js $(ARGS)
