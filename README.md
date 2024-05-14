@@ -2,7 +2,6 @@
 
 This project is a template that can serve as a basis for any new decentralized application project wanting to use foundry for the development of smart contracts and Next.js and Wagmi for the user interface.
 
-https://www.loom.com/share/9a3456032f4d4123a47201bb8f36add0
 
 <details>
 <summary><h1>Preview</h1></summary>
@@ -45,19 +44,22 @@ ETHERSCAN_API_KEY="D[...]V" // Etherscan Api key to verify you contract on ether
 
    Foundry will use configured wallet (***_WALLET_PROD) in your .env file to deploy the contract onchain. (don't forget to have faucet tokens in the wallet). 
 
-<img width="907" alt="image" src="https://github.com/AlexScotte/boilerplate-hardhat-nextjs-wagmi-rainbowkit/assets/53000621/56e7c15b-cafd-418c-8e0b-f391021e6048">
+<img width="1565" alt="1" src="https://github.com/AlexScotte/boilerplate-foundry-nextjs-wagmi-rainbowkit/assets/53000621/5c456e95-2341-41e8-ad6c-cee2fbed040c">
+<img width="935" alt="2" src="https://github.com/AlexScotte/boilerplate-foundry-nextjs-wagmi-rainbowkit/assets/53000621/3f2f3175-cb0e-494a-9953-5c2c46c1dfff">
+
 
 After deploying the script will copy the ABI and deployed address of the contract into a folder in the front directory (editable in the script)
 This makes it easy to modify and redeploy your contract and test it without importing the ABI.
 
-![image](https://github.com/AlexScotte/boilerplate-hardhat-nextjs-wagmi-rainbowkit/assets/53000621/af11389b-4343-4058-be52-b9ab85be9c7e)
+![image](https://github.com/AlexScotte/boilerplate-foundry-nextjs-wagmi-rainbowkit/assets/53000621/90463006-3641-47ff-9234-f811c0039dac)
+
 
 
 ## Testing contract (optional)
 
 Launch the coverage command `make coverage` (or `forge coverage`) to build and test the contract.
 
-![image](https://github.com/AlexScotte/boilerplate-hardhat-nextjs-wagmi-rainbowkit/assets/53000621/75b7ab1b-b0c5-4bdd-bd9a-bb0130bf186d)
+![image](https://github.com/AlexScotte/boilerplate-foundry-nextjs-wagmi-rainbowkit/assets/53000621/a3f4075a-6c35-408c-be5d-cf6e14c74d48)
 
 </details>
 
