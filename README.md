@@ -2,6 +2,7 @@
 
 This project is a template that can serve as a basis for any new decentralized application project wanting to use foundry for the development of smart contracts and Next.js and Wagmi for the user interface.
 
+https://www.loom.com/share/534a7cc3e14b4c719715bfe44b1c68ee
 
 <details>
 <summary><h1>Preview</h1></summary>
@@ -69,7 +70,7 @@ Launch the coverage command `make coverage` (or `forge coverage`) to build and t
 ## Description
 The front is an interface which will allow interaction with the deployed smart contract. It allows the user to connect their wallet using the rainbow kit tool and to get and update the contract value on the blockchain.
 The front is already deployed and you can interact with it 
-https://boilerplate-hardhat-nextjs-wagmi-rainbowkit.vercel.app
+https://boilerplate-foundry-wagmi.vercel.app/
 
 All commands must be executed in the frontend folder (`cd frontend`).
 
