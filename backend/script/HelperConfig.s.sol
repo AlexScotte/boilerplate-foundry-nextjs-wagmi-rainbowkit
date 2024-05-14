@@ -23,7 +23,7 @@ contract HelperConfig is Script {
         }
     }
 
-   function getLocalConfig() public view returns(NetworkConfig memory){
+   function getLocalConfig() private view returns(NetworkConfig memory){
        return NetworkConfig(
         {
             owner: vm.envAddress("ADDRESS_WALLET_ANVIL"),
@@ -31,7 +31,7 @@ contract HelperConfig is Script {
         });
    }
 
-   function getSepoliaConfig() public view returns(NetworkConfig memory){
+   function getSepoliaConfig() private view returns(NetworkConfig memory){
        return NetworkConfig(
         {
             owner: vm.envAddress("ADDRESS_WALLET_PROD"),

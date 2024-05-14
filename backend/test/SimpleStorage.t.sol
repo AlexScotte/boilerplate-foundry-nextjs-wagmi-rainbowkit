@@ -3,7 +3,7 @@ pragma solidity ^0.8.24;
 
 import {Test, console} from "forge-std/Test.sol";
 import {SimpleStorage} from "../src/SimpleStorage.sol";
-import {Deployer} from "../script/SimpleStorage.s.sol";
+import {SimpleStorageDeploy} from "../script/SimpleStorage.s.sol";
 import {HelperConfig} from "../script/HelperConfig.s.sol";
 import {StdInvariant} from "forge-std/StdInvariant.sol";
 
@@ -19,10 +19,20 @@ contract SimpleStorageTest is  StdInvariant, Test {
 
     function setUp() external {
 
-        Deployer deployer = new Deployer();
+        SimpleStorageDeploy deployer = new SimpleStorageDeploy();
         (simpleStorage, helperConfig) = deployer.run();
         (owner, ownerPrivateKey) = helperConfig.activeNetworkConfig();
         targetContract(address(simpleStorage));
+    }
+
+    function testShouldSetRightConfigOwner() public{
+        (owner, ownerPrivateKey) = helperConfig.activeNetworkConfig();
+        assertEq(owner, vm.envAddress("ADDRESS_WALLET_ANVIL"));
+    }
+
+    function testShouldSetRightConfigPrivateKey() public{
+        (owner, ownerPrivateKey) = helperConfig.activeNetworkConfig();
+        assertEq(ownerPrivateKey, vm.envUint("PRIVATE_KEY_WALLET_ANVIL"));
     }
 
     /////////////////
