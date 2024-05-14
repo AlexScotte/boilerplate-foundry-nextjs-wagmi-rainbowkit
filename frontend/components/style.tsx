@@ -1,14 +1,15 @@
 import '@rainbow-me/rainbowkit/styles.css';
 import {
-  getDefaultConfig,
-  RainbowKitProvider,
-  Theme,
+    getDefaultConfig,
+    RainbowKitProvider,
+    Theme,
 } from '@rainbow-me/rainbowkit';
 
 const TitleTextFont = "Ethnocentric";
 const DescriptionTextFont = "SambaIsDead";
-const MainColor = "rgb(255, 192, 0, .4)";
-const MainColorAttenuated = "rgb(255, 192, 0, .2)";
+// const MainColor = "rgb(255, 122, 0, .4)";
+const MainColor = "rgb(255, 122, 0, .4)";
+const MainColorAttenuated = "rgb(255, 122, 0, .2)";
 const MainBorderStyle = `.5px solid ${MainColor}`;
 const MainBorderAttenuatedStyle = `.5px solid ${MainColorAttenuated}`;
 const LargeBorderStyle = `1px solid ${MainColor}`;
@@ -30,7 +31,7 @@ export const BodyBorderStyle = {
     borderBottom: 0,
     borderTop: MainBorderStyle,
 }
- 
+
 export const FooterBorderStyle = {
     marginRight: 2,
     marginLeft: 2,
@@ -63,23 +64,23 @@ export const MainButtonStyle = {
     borderBottomLeftRadius: 0,
     borderTopRightRadius: 0,
     border: MainBorderStyle,
-    bg: "linear-gradient(308.45deg, rgba(255, 192, 0, 0.4) -94.97%, rgba(255, 192, 0, 0.05) 70.06%);",
+    bg: "linear-gradient(308.45deg, rgba(255, 122, 0, 0.4) -94.97%, rgba(255, 122, 0, 0.05) 70.06%);",
     fontFamily: TitleTextFont,
     color: MainTextColor,
     _hover: {
-      bg: "rgb(255, 192, 0, 0.2)",
-      border: LargeBorderStyle,
-     },
-} 
+        bg: "rgb(255, 122, 0, 0.2)",
+        border: LargeBorderStyle,
+    },
+}
 
 export const MainCardStyle = {
     borderTopLeftRadius: 20,
     borderBottomRightRadius: 20,
     width: ['100%', '100%', '50%', '50%'],
-    // bg: "linear-gradient(308.45deg, rgba(255, 192, 0, 0.4) -94.97%, rgba(255, 192, 0, 0.05) 70.06%)",
-    bg: 'linear-gradient(308.45deg, rgba(255,192,0) -90.97%, rgba(0, 0, 0) 80%);',
-    
-    border: ".5px solid rgb(255, 192, 0, 0.4)",
+    // bg: "linear-gradient(308.45deg, rgba(255, 122, 0, 0.4) -94.97%, rgba(255, 122, 0, 0.05) 70.06%)",
+    bg: 'linear-gradient(308.45deg, rgba(255,122,0) -90.97%, rgba(0, 0, 0) 80%);',
+
+    border: ".5px solid rgb(255, 122, 0, 0.4)",
 }
 
 export const NavItemActiveStyle = {
@@ -87,19 +88,19 @@ export const NavItemActiveStyle = {
     borderTop: MainBorderAttenuatedStyle,
     borderRight: MainBorderAttenuatedStyle,
     borderLeft: MainBorderAttenuatedStyle,
-    borderBottom: "1px solid rgb(255, 192, 0)",
+    borderBottom: "1px solid rgb(255, 122, 0)",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 0,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 20,
     width: 100,
     textAlign: "center",
-    bg: "linear-gradient(152.1deg, rgba(255, 192, 0, 0.4) -28.68%, rgba(255, 192, 0, 0.01) 66.42%)",
-    color: "rgb(255, 192, 0)",
+    bg: "linear-gradient(152.1deg, rgba(255, 122, 0, 0.4) -28.68%, rgba(255, 122, 0, 0.01) 66.42%)",
+    color: "rgb(255, 122, 0)",
 }
 
 export const NavItemNonActiveStyle = {
-    
+
     cursor: "pointer",
     border: "0px",
     bg: "transparent",
@@ -108,16 +109,16 @@ export const NavItemNonActiveStyle = {
     textAlign: "center",
     color: "white",
     _hover: {
-        borderTop: ".5px solid rgba(255, 192, 0, 0.2)",
-        borderRight: ".5px solid rgba(255, 192, 0, 0.2)",
-        borderLeft: ".5px solid rgba(255, 192, 0, 0.2)",
-        borderBottom: ".5px solid rgba(255, 192, 0, 0.2)",
+        borderTop: ".5px solid rgba(255, 122, 0, 0.2)",
+        borderRight: ".5px solid rgba(255, 122, 0, 0.2)",
+        borderLeft: ".5px solid rgba(255, 122, 0, 0.2)",
+        borderBottom: ".5px solid rgba(255, 122, 0, 0.2)",
         borderTopLeftRadius: 20,
         borderTopRightRadius: 0,
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 20,
-        // bg: "rgb(255, 192, 0, 0.2)"
-        bg: "linear-gradient(152.1deg, rgba(255, 192, 0, 0.4), rgba(255, 192, 0, 0.01) )",    
+        // bg: "rgb(255, 122, 0, 0.2)"
+        bg: "linear-gradient(152.1deg, rgba(255, 122, 0, 0.4), rgba(255, 122, 0, 0.01) )",
     }
 }
 
@@ -136,8 +137,8 @@ export const MainListStyle = {
 }
 
 export const MainInputStyle = {
-    
-    bg: "linear-gradient(308.45deg, rgba(255, 192, 0, 0.4) -94.97%, rgba(255, 192, 0, 0.05) 70.06%)",
+
+    bg: "linear-gradient(308.45deg, rgba(255, 122, 0, 0.4) -94.97%, rgba(255, 122, 0, 0.05) 70.06%)",
 }
 
 export const MainInputFieldStyle = {
@@ -148,15 +149,15 @@ export const MainInputFieldStyle = {
     borderTopRadius: 10,
     borderBottomRadius: 0,
     _hover: {
-      bg: MainColorAttenuated,
-      border: LargeBorderStyle,
+        bg: MainColorAttenuated,
+        border: LargeBorderStyle,
     },
     _focus: {
-        outline:'none',
+        outline: 'none',
         boxShadow: '0px',
     },
     _focusVisible: {
-        outline:'none',
+        outline: 'none',
         boxShadow: '0px',
     }
 }
@@ -188,7 +189,7 @@ export const ToastBaseStyle = {
 }
 
 const warningColor = "#C05621";
-export const ToastWarningStyle =  {
+export const ToastWarningStyle = {
 
     ...ToastBaseStyle,
     border: `5px solid ${warningColor}`,
@@ -196,7 +197,7 @@ export const ToastWarningStyle =  {
 }
 
 const errorColor = "#C53030";
-export const ToastErrorStyle =  {
+export const ToastErrorStyle = {
 
     ...ToastBaseStyle,
     border: `5px solid ${errorColor}`,
@@ -204,7 +205,7 @@ export const ToastErrorStyle =  {
 }
 
 const infoColor = "#2B6CB0";
-export const ToastInfoStyle =  {
+export const ToastInfoStyle = {
 
     ...ToastBaseStyle,
     border: `5px solid ${infoColor}`,
@@ -212,7 +213,7 @@ export const ToastInfoStyle =  {
 }
 
 const successColor = "#2F855A";
-export const ToastSuccessStyle =  {
+export const ToastSuccessStyle = {
 
     ...ToastBaseStyle,
     border: `5px solid ${successColor}`,
@@ -225,38 +226,37 @@ export const ToastSuccessStyle =  {
  */
 export const rainbowKitCustomTheme = {
     colors: {
-      accentColor: MainColorAttenuated,
-      accentColorForeground: MainTextColor,
-      // main modal
-      modalBackground: 'linear-gradient(308.45deg, rgba(255,192,0) -90.97%, rgba(0, 0, 0) 80%);',
-      modalBorder: MainBorderStyle,
-      // action button
-      actionButtonBorder: MainColor, // Obtain/Close button
-      actionButtonBorderMobile: MainBorderStyle,
-      actionButtonSecondaryBackground: MainBorderStyle, // "Obtain" button
-      // menu item
-      menuItemBackground: MainColorAttenuated, // menu item (select wallet/chain)
-      connectButtonText: MainTextColor,
-      // user profile info (when clicking on connected address)
-      // profileAction: '...', // Copy/disconnect button
-      profileActionHover: MainColorAttenuated,
-      profileForeground: '...',
-      selectedOptionBorder: MainColor, // Selected chain border
-  
-      closeButton: MainColor,
-      closeButtonBackground: '...',    
-      connectButtonBackground: MainColorAttenuated,
-      // connectButtonBackground: "linear-gradient(308.45deg, rgba(255, 192, 0, 0.4) -94.97%, rgba(255, 192, 0, 0.05) 70.06%);",
+        accentColor: MainColorAttenuated,
+        accentColorForeground: MainTextColor,
+        // main modal
+        modalBackground: 'linear-gradient(308.45deg, rgba(255,122,0) -90.97%, rgba(0, 0, 0) 80%);',
+        modalBorder: MainBorderStyle,
+        // action button
+        actionButtonBorder: MainColor, // Obtain/Close button
+        actionButtonBorderMobile: MainBorderStyle,
+        actionButtonSecondaryBackground: MainBorderStyle, // "Obtain" button
+        // menu item
+        menuItemBackground: MainColorAttenuated, // menu item (select wallet/chain)
+        connectButtonText: MainTextColor,
+        // user profile info (when clicking on connected address)
+        // profileAction: '...', // Copy/disconnect button
+        profileActionHover: MainColorAttenuated,
+        profileForeground: '...',
+        selectedOptionBorder: MainColor, // Selected chain border
+
+        closeButton: MainColor,
+        closeButtonBackground: '...',
+        connectButtonBackground: MainColorAttenuated,
+        // connectButtonBackground: "linear-gradient(308.45deg, rgba(255, 122, 0, 0.4) -94.97%, rgba(255, 122, 0, 0.05) 70.06%);",
     },
     radii: {
-      actionButton: '10px 0px 10px 0px',
-      connectButton: '0px 10px 0px 10px',
-      menuButton: '0px 20px 0px 0px',
-      modal: '20px 0px 20px 0px',
-      modalMobile: '10px 0px 10px 0px',
+        actionButton: '10px 0px 10px 0px',
+        connectButton: '0px 10px 0px 10px',
+        menuButton: '0px 20px 0px 0px',
+        modal: '20px 0px 20px 0px',
+        modalMobile: '10px 0px 10px 0px',
     },
     fonts: {
-      body: TitleTextFont,
+        body: TitleTextFont,
     },
-  } as Theme;
-  
+} as Theme;

@@ -10,32 +10,32 @@ const Layout = ({
     children: React.ReactNode;
 }>) => {
     return (
-        <div style={{ 
+        <div style={{
             // backgroundImage: `url(${process.env.PUBLIC_URL + '/backgrounds/1.png'})`,
-            backgroundImage: `url(./backgrounds/6.png)`,
+            backgroundImage: `url(./backgrounds/5.png)`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
-          }}>
+        }}>
 
-        <Flex direction="column"
-            h="100vh"
-            justifyContent="center"
-        >
-
-            <Header/>
-            
-            <Flex
-                grow={1}
+            <Flex direction="column"
+                h="100vh"
                 justifyContent="center"
-                alignItems="center"
-                sx={BodyBorderStyle}
-               >
-                {children}
-            </Flex>
-            
-            <Footer />
+            >
 
-        </Flex>
+                <Header />
+
+                <Flex
+                    grow={1}
+                    justifyContent="center"
+                    alignItems="center"
+                    sx={BodyBorderStyle}
+                >
+                    {children}
+                </Flex>
+
+                <Footer />
+
+            </Flex>
         </div>
 
     )

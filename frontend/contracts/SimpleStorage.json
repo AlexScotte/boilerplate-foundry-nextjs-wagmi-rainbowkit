@@ -140,9 +140,9 @@
   "networks": {
     "31337": {
       "network": "localhost",
-      "address": "0x0165878a594ca255338adfa4d48449f69242eb8f",
-      "transactionHash": "0x0c1c006d93379658719457ef68c7a7f1880383152c599c258b3e9359f7c5eb69",
-      "blockNumber": 7
+      "address": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      "transactionHash": "0x863a8278352e6d9b486c3c448537c54092945bc9f1aa8ac0899331898718ab4f",
+      "blockNumber": 1
     },
     "11155111": {
       "network": "sepolia",
