@@ -146,9 +146,9 @@
     },
     "11155111": {
       "network": "sepolia",
-      "address": "0x97be3e08c3efa2c92eaaa24c5d95efc366bfd5fb",
-      "transactionHash": "0x46b5b49b4cc54c05b1be66ebe78b51a9760a1a4ff127e1bb21897da244f5c328",
-      "blockNumber": 5899992
+      "address": "0x67cbdf49829c283a601ca0f35e59b1765c926912",
+      "transactionHash": "0xc10831fafd290648ab8eee6eb0fea91a841b8e56b5d1f973e018405e356fbcdb",
+      "blockNumber": 5901219
     }
   }
 }

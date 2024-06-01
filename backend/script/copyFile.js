@@ -20,23 +20,22 @@ async function main() {
   console.log(`🔗 Current network ${network.name} - ${network.chainId}  `);
 
   const contractsToDeploy = [
-    /** Contract 1: SimpleStorage with args **/
+    /** Contract 1: SimpleStorage**/
     {
       contract_name: "SimpleStorage",
-      args: ["0xa93C78a3375911a6F1feB2b259180560423FF1B3"],
     },
   ];
 
   for (const contract of contractsToDeploy) {
     try {
-      await saveFrontendFiles(contract.contract_name, contract.args);
+      await saveFrontendFiles(contract.contract_name);
     } catch (error) {
       throw new Error(`❌ ${error}`);
     }
   }
 }
 
-async function saveFrontendFiles(contractName, args) {
+async function saveFrontendFiles(contractName) {
   const fs = require("fs");
   const path = require("path");
 
