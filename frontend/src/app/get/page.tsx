@@ -15,8 +15,9 @@ import {
 import {
   type Abi,
 } from 'abitype'
+import { createPublicClient, http, Chain, type PublicClient } from "viem";
 import { DescriptionTextStyle, MainButtonStyle, MainCardStyle, ToastErrorStyle, ToastWarningStyle } from "@/src/app/components/style";
-import { GetExpectedChainIdWithEnv } from "@/src/utils/utils";
+import { ChainID, GetExpectedChainIdWithEnv } from "@/src/utils/utils";
 
 const Get = () => {
 
@@ -25,72 +26,60 @@ const Get = () => {
   const { simpleStorageAddress, simpleStorageAbi } = useContext(ContractContext) as Contract;
   const [storedValue, setStoredValue] = useState<string>('');
   const [expectedChainId, expectedChainViem] = GetExpectedChainIdWithEnv();
+  const [publicClient, setPublicClient] = useState<PublicClient>();
+  const [storedValueLoading, setStoredValueLoading] = useState<boolean>(false);
 
+  useEffect(() => {
 
-  const {
-    data: data,
-    isLoading: getStoredValueLoading,
-    error: getStoredValueError,
-    refetch: refetchStoredValue
-  } = useReadContract({
-    address: simpleStorageAddress as `0x${string}`,
-    abi: simpleStorageAbi as unknown as Abi,
-    functionName: "get",
-    account: address
-  });
+    let publicNode = http();
+    if (expectedChainId === ChainID.Sepolia) {
+      publicNode = http(process.env.NEXT_PUBLIC_PROVIDER_SEPOLIA_RPC);
+    }
 
+    const publicClient = createPublicClient({
+      chain: expectedChainViem as Chain,
+      transport: publicNode,
+    })
+    setPublicClient(publicClient);
+
+  }, [simpleStorageAddress])
 
   /**
    * Get the stored value from the contract
    */
   const getStoredValue = async () => {
 
+    if (!publicClient)
+      return;
 
-    if (!isConnected) {
+    setStoredValueLoading(true);
 
-      toast({
-        title: "Not connected",
-        description: "Please connect your wallet",
-        status: "warning",
-        containerStyle: ToastWarningStyle
-      })
-    }
-    else {
+    try {
 
-      if (chain?.id !== expectedChainId) {
+      const data = await publicClient.readContract({
+        address: simpleStorageAddress as `0x${string}`,
+        abi: simpleStorageAbi as unknown as Abi,
+        functionName: "get",
+        account: address
+      });
 
-        if (typeof expectedChainViem === 'object' && 'name' in expectedChainViem) {
-          toast.closeAll();
-          toast({
-            title: "Wrong network",
-            description: `Please connect to ${expectedChainViem.name}`,
-            status: "warning",
-            duration: 9999999,
-            containerStyle: ToastWarningStyle
-          })
-          return;
-        }
-      }
-
-      const result = await refetchStoredValue();
       console.log("Get stored value result:");
-      console.log(result);
+      console.log(`Stored value: ${data}`)
+      const resultBigInt = data as BigInt;
+      setStoredValue(resultBigInt.toString());
 
-      if (result.status === "success") {
+    } catch (error) {
 
-        console.log(`Stored value: ${result.data}`)
-        const resultBigInt = result.data as BigInt;
-        setStoredValue(resultBigInt.toString());
-      }
-      else {
+      console.log(error);
+      toast({
+        title: "Error",
+        description: "Error when getting stored value",
+        status: "error",
+        containerStyle: ToastErrorStyle
+      })
+    } finally {
 
-        toast({
-          title: "Error",
-          description: "Error when getting stored value",
-          status: "error",
-          containerStyle: ToastErrorStyle
-        })
-      }
+      setStoredValueLoading(false);
     }
   }
 
@@ -116,8 +105,7 @@ const Get = () => {
               sx={MainButtonStyle}
               onClick={() => getStoredValue()}
               mt="1rem"
-              isLoading={getStoredValueLoading}
-            >
+              isLoading={storedValueLoading}>
               Get
             </Button>
 
