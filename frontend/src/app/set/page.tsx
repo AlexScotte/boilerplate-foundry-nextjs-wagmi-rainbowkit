@@ -238,7 +238,7 @@ const Set = () => {
           toast.closeAll();
           toast({
             title: "Wrong network",
-            description: `Please connect to ${expectedChainViem.name}`,
+            description: `Please switch to ${expectedChainViem.name} network`,
             status: "warning",
             duration: 9999999,
             containerStyle: ToastWarningStyle

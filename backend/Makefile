@@ -24,11 +24,11 @@ ifeq ($(findstring mainnet, $(ARGS)), mainnet)
 endif
 
 deploy:
-	@forge script script/SimpleStorage.s.sol:SimpleStorageDeploy $(NETWORK_ARGS)
+	@forge script scripts/SimpleStorage.s.sol:SimpleStorageDeploy $(NETWORK_ARGS)
 
 deployCopy:
 	$(MAKE) deploy
-	@node script/copyFile.js $(ARGS)
+	@node scripts/copyFile.js $(ARGS)
 
 node:
 	@anvil
