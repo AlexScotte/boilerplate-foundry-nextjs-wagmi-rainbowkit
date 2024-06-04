@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const contractFrontFolder = "../../src/frontend/contracts";
+const contractFrontFolder = "../../frontend/src/contracts";
 
 const network = {};
 
